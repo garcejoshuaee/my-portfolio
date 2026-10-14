@@ -1,0 +1,1460 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Joshua Alexis L. Garce - IT Student Portfolio">
+<title>Joshua Alexis L. Garce | IT Student</title>
+
+<style>
+
+.project-image {
+  height: 175px;
+  overflow: hidden;
+  padding: 0;
+  background: linear-gradient(145deg, #102543, #07101e);
+  border-bottom: 1px solid var(--line);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .3s ease;
+}
+
+.project:hover .project-image img {
+  transform: scale(1.05);
+}
+
+:root {
+  --bg: #050a13;
+  --bg2: #091426;
+  --card: rgba(12,26,46,.88);
+  --text: #f3f7ff;
+  --muted: #a9b8ce;
+  --line: rgba(77,151,255,.23);
+  --blue: #3487ff;
+  --blue2: #62a6ff;
+  --shadow: 0 18px 55px #0004;
+}
+
+body.light {
+  --bg: #edf3fb;
+  --bg2: #e4edf9;
+  --card: rgba(255,255,255,.9);
+  --text: #101d31;
+  --muted: #53647b;
+  --line: rgba(31,100,190,.2);
+  --blue: #176ce0;
+  --blue2: #075bc9;
+  --shadow: 0 18px 45px #18375f1c;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 85% 8%, #185ec030, transparent 34rem),
+    radial-gradient(ellipse at 4% 48%, #11428720, transparent 30rem),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  line-height: 1.65;
+  transition: background .3s, color .3s;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+.container {
+  width: min(1120px, calc(100% - 40px));
+  margin: auto;
+}
+
+.section {
+  padding: 94px 0;
+  position: relative;
+}
+
+.eyebrow {
+  color: var(--blue2);
+  font-size: .78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  margin: 0 0 10px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  margin: 0 0 16px;
+  letter-spacing: -.04em;
+}
+
+.section-title span,
+.accent {
+  color: var(--blue2);
+}
+
+.lead {
+  max-width: 650px;
+  color: var(--muted);
+  margin: 0 0 35px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 19px;
+  border: 1px solid var(--blue);
+  border-radius: 12px;
+  color: var(--text);
+  background: transparent;
+  font-weight: 700;
+  font-size: .92rem;
+  cursor: pointer;
+  transition: transform .22s, background .22s, box-shadow .22s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px #3487ff30;
+}
+
+.primary {
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(135deg, #176ce0, #438fff);
+}
+
+.small {
+  padding: 9px 13px;
+  font-size: .84rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(18px);
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  font-weight: 900;
+  letter-spacing: -.06em;
+  font-size: 1.45rem;
+}
+
+.brand span {
+  color: var(--blue2);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.links a {
+  color: var(--muted);
+  font-size: .9rem;
+  font-weight: 650;
+  padding: 10px 13px;
+  border-radius: 10px;
+}
+
+.links a:hover,
+.links a.active {
+  color: var(--text);
+  background: #3487ff1f;
+}
+
+.links a.active {
+  box-shadow: inset 0 -2px var(--blue);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 9px;
+}
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+}
+
+/* HERO */
+
+.hero {
+  min-height: calc(88vh - 74px);
+  display: grid;
+  align-items: center;
+  padding: 70px 0 82px;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 1.04;
+  letter-spacing: -.065em;
+  margin: 0 0 22px;
+}
+
+.hero h1 .name {
+  display: block;
+  color: var(--blue2);
+}
+
+.hero-copy {
+  max-width: 600px;
+  color: var(--muted);
+  font-size: 1.06rem;
+  margin: 0 0 28px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.visual {
+  display: grid;
+  place-items: center;
+  position: relative;
+  min-height: 370px;
+}
+
+.orbit {
+  position: absolute;
+  width: min(350px, 82vw);
+  aspect-ratio: 1;
+  border: 1px solid #4896ff45;
+  border-radius: 50%;
+  box-shadow: 0 0 90px #2477f41f, inset 0 0 50px #2477f414;
+}
+
+.avatar {
+  width: min(275px, 68vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 3px solid var(--blue);
+  background: linear-gradient(145deg, #112c50, #07101e 75%);
+  box-shadow: 0 0 0 12px #3487ff10, 0 0 75px #3487ff38;
+  text-align: center;
+  color: #c9e0ff;
+  padding: 24px;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  inset: 0;
+}
+
+.avatar .person {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.avatar strong {
+  font-size: .88rem;
+}
+
+.avatar small {
+  color: #9bb7dc;
+}
+
+.float-tag {
+  position: absolute;
+  right: 0;
+  bottom: 28px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 13px 16px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  font-size: .85rem;
+}
+
+.float-tag strong {
+  color: var(--blue2);
+  display: block;
+  font-size: 1rem;
+}
+
+/* ABOUT */
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.about-copy {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 27px;
+}
+
+.detail {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: .9rem;
+}
+
+.detail .symbol {
+  color: var(--blue2);
+  font-size: 1.2rem;
+  min-width: 23px;
+}
+
+.detail small {
+  display: block;
+  color: var(--muted);
+}
+
+.stack {
+  display: grid;
+  gap: 14px;
+}
+
+.stack-item {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.stack-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.round-icon {
+  width: 43px;
+  height: 43px;
+  flex: 0 0 43px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #1559a7, #0b1b33);
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.stack-item h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.stack-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.chip {
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--muted);
+  font-size: .83rem;
+  background: #3487ff0b;
+}
+
+/* PROJECTS */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.project {
+  overflow: hidden;
+  padding: 0;
+  transition: transform .25s, border-color .25s;
+}
+
+.project:hover {
+  transform: translateY(-6px);
+  border-color: #3487ff8c;
+}
+
+.project-image {
+  height: 175px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: linear-gradient(145deg, #102543, #07101e);
+  border-bottom: 1px solid var(--line);
+  color: #88b8ff;
+  text-align: center;
+  padding: 15px;
+}
+
+.project-image .image-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.project-image span:last-child {
+  font-size: .75rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.project-body {
+  padding: 21px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+.project h3 {
+  margin: 0 0 9px;
+  font-size: 1.1rem;
+}
+
+.badge {
+  font-size: .68rem;
+  color: #9dc7ff;
+  background: #3487ff20;
+  padding: 5px 8px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.project p {
+  color: var(--muted);
+  font-size: .9rem;
+  margin: 0 0 15px;
+}
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  color: var(--blue2);
+  font-size: .78rem;
+  margin-bottom: 18px;
+}
+
+.project .btn {
+  margin-top: 0;
+}
+
+/* CONTACT */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.contact-list {
+  display: grid;
+  gap: 17px;
+  margin: 25px 0;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  overflow-wrap: anywhere;
+}
+
+.contact-row .round-icon {
+  width: 40px;
+  height: 40px;
+  flex-basis: 40px;
+}
+
+.contact-row small {
+  display: block;
+  color: var(--muted);
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  font-weight: 800;
+}
+
+.socials a:hover {
+  color: var(--blue2);
+  border-color: var(--blue);
+}
+
+.form-title {
+  margin: 0 0 20px;
+  font-size: 1.2rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+  min-width: 0;
+}
+
+.field label {
+  font-size: .82rem;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px 13px;
+  color: var(--text);
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px #3487ff1c;
+}
+
+.field textarea {
+  min-height: 125px;
+  resize: vertical;
+}
+
+.field .error {
+  color: #ff7777;
+  font-size: .78rem;
+  min-height: 1em;
+}
+
+.form-status {
+  color: var(--blue2);
+  font-size: .9rem;
+  margin: 12px 0 0;
+  min-height: 1.4em;
+}
+
+.privacy-note {
+  font-size: .78rem;
+  color: var(--muted);
+  margin: 10px 0 0;
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 22px 0;
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue2);
+  outline-offset: 3px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-visual {
+    min-height: 330px;
+    grid-row: 1;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-copy {
+    margin-inline: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .float-tag {
+    right: 8%;
+  }
+
+  .grid2,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section {
+    padding: 75px 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .nav {
+    min-height: 66px;
+  }
+
+  .menu {
+    display: grid;
+  }
+
+  .links {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 14px;
+    right: 14px;
+    padding: 12px;
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .links.open {
+    display: flex;
+  }
+
+  .links a {
+    padding: 12px;
+  }
+
+  .hero {
+    padding-top: 38px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 12vw, 3.7rem);
+  }
+
+  .hero-visual {
+    min-height: 290px;
+  }
+
+  .avatar {
+    width: 225px;
+  }
+
+  .orbit {
+    width: 275px;
+  }
+
+  .float-tag {
+    right: 0;
+    bottom: 0;
+  }
+
+  .section {
+    padding: 65px 0;
+  }
+
+  .details,
+  .projects-grid,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 21px;
+  }
+
+  .project-image {
+    height: 165px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="JAG home">J<span>A</span>G</a>
+
+    <nav class="links" id="navLinks" aria-label="Main navigation">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" type="button"
+        aria-label="Switch to light mode" title="Toggle theme">☼</button>
+      <button class="icon-btn menu" id="menuToggle" type="button"
+        aria-label="Open navigation menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- HOME -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+
+    <div class="hero-content reveal">
+      <p class="eyebrow">IT Student</p>
+
+      <h1>Hello, I'm
+        <span class="name">Joshua Alexis L. Garce</span>
+      </h1>
+
+      <p class="hero-copy">
+        A passionate Information Technology student with a drive to
+        learn, build, and create meaningful solutions through technology.
+        Welcome to my personal website!
+      </p>
+
+      <div class="hero-buttons">
+        <a class="btn primary" href="#projects">
+          Explore My Work <span aria-hidden="true">↗</span>
+        </a>
+        <a class="btn" href="#about">About Me</a>
+      </div>
+    </div>
+
+    <div class="hero-visual visual reveal" aria-label="Profile photo placeholder">
+      <div class="orbit"></div>
+     <div class="avatar">
+  <img src="images/profile.jpg" alt="Joshua Alexis Garce">
+</div>
+      <div class="float-tag">
+        <strong>BS Information Technology</strong>
+        National University Manila
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT ME -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="grid2">
+
+      <div class="reveal">
+        <p class="eyebrow">About Me</p>
+        <h2 class="section-title">Get to Know <span>Me</span></h2>
+
+        <p class="about-copy">
+          I'm Joshua Alexis L. Garce, an IT student currently studying
+          at National University Manila. I'm interested in technology,
+          web development, fitness, and continuous learning. I enjoy
+          exploring new skills and applying what I learn to practical projects.
+        </p>
+
+        <p class="about-copy">
+          My goal is to grow into a skilled IT professional, contribute
+          to useful digital solutions, and keep improving both personally
+          and professionally.
+        </p>
+
+        <div class="details">
+          <div class="detail">
+            <span class="symbol">♙</span>
+            <div>Full Name<small>Joshua Alexis L. Garce</small></div>
+          </div>
+
+          <div class="detail">
+            <span class="symbol">▣</span>
+            <div>Course<small>BS Information Technology</small></div>
+          </div>
+
+          <div class="detail">
+            <span class="symbol">⌖</span>
+            <div>Age<small>21 years old</small></div>
+          </div>
+
+          <div class="detail">
+            <span class="symbol">▤</span>
+            <div>Year Level<small>3rd Year</small></div>
+          </div>
+
+          <div class="detail">
+            <span class="symbol">⌖</span>
+            <div>Location<small>Manila, Philippines</small></div>
+          </div>
+
+          <div class="detail">
+            <span class="symbol">◆</span>
+            <div>School<small>National University Manila</small></div>
+          </div>
+        </div>
+
+        <div class="chips">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Boxing</span>
+          <span class="chip">Gym & Fitness</span>
+        </div>
+      </div>
+
+      <div class="panel stack reveal">
+        <div class="stack-item">
+          <div class="round-icon">🎓</div>
+          <div>
+            <h3>Educational Background</h3>
+            <p>National University Manila<br>
+            BS Information Technology · 3rd Year</p>
+          </div>
+        </div>
+
+        <div class="stack-item">
+          <div class="round-icon">⌘</div>
+          <div>
+            <h3>Skills</h3>
+            <p>HTML · CSS · JavaScript<br>
+            Web design fundamentals and ongoing practice</p>
+          </div>
+        </div>
+
+        <div class="stack-item">
+          <div class="round-icon">🏋</div>
+          <div>
+            <h3>Interests</h3>
+            <p>Boxing, gym workouts, staying active, learning new technology</p>
+          </div>
+        </div>
+
+        <div class="stack-item">
+          <div class="round-icon">◎</div>
+          <div>
+            <h3>Career Goal</h3>
+            <p>To become a capable IT professional and help create
+            accessible, practical, and impactful technology solutions.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="container">
+    <p class="eyebrow">My Portfolio</p>
+    <h2 class="section-title">Featured <span>Projects</span></h2>
+
+    <p class="lead">
+      Here are some of my personal and academic projects.
+      Each project represents my creativity, skills, and learning
+      experience in website development.
+    </p>
+
+    <div class="projects-grid">
+
+      <!-- PROJECT 1: 2JOSH -->
+      <article class="panel project reveal">
+        <div class="project-image">
+<img src="images/project1.jpg" alt="2JOSH e-commerce website screenshot">
+</div>
+
+        <div class="project-body">
+          <div class="project-heading">
+            <h3>2JOSH</h3>
+            <span class="badge">E-Commerce</span>
+          </div>
+
+          <p>
+            2JOSH is an e-commerce website that focuses on selling
+            silver earrings. It allows customers to explore different
+            earring designs and browse available products online
+            through a simple and convenient shopping experience.
+          </p>
+
+          <div class="tools">
+            <span>⌘ React</span>
+            <span>◇ TypeScript</span>
+            <span>↗ Tailwind CSS</span>
+            <span>◎ Supabase</span>
+          </div>
+
+          <a class="btn small" href="#contact"
+            aria-label="Ask me about 2JOSH">
+            Project Details ↗
+          </a>
+        </div>
+      </article>
+
+   <!-- PROJECT 2: PERSONAL RESUME -->
+<article class="panel project reveal">
+  <div class="project-image">
+ <img src="images/project2.jpg" alt="Personal resume website screenshot">
+  </div>
+
+
+        <div class="project-body">
+          <div class="project-heading">
+            <h3>Personal Resume</h3>
+            <span class="badge">Personal Website</span>
+          </div>
+
+          <p>
+            This personal resume website presents my personal information,
+            educational background, skills, and interests in an organized
+            format. It serves as a digital profile where visitors can
+            learn more about me as an Information Technology student.
+          </p>
+
+          <div class="tools">
+            <span>⌘ HTML</span>
+            <span>◇ CSS</span>
+            <span>↗ JavaScript</span>
+          </div>
+
+          <a class="btn small" href="#contact"
+            aria-label="Ask me about my Personal Resume">
+            Project Details ↗
+          </a>
+        </div>
+      </article>
+
+    <!-- PROJECT 3: ASSAULT MOB -->
+<article class="panel project reveal">
+  <div class="project-image">
+   <img src="images/project3.jpg" alt="ASSAULT MOB clothing website screenshot">es/assault-mob.jpg" alt="ASSAULT MOB clothing website screenshot">
+  </div>
+
+
+        <div class="project-body">
+          <div class="project-heading">
+            <h3>ASSAULT MOB</h3>
+            <span class="badge">Clothing Website</span>
+          </div>
+
+          <p>
+            ASSAULT MOB is a clothing website designed to showcase
+            apparel in a modern and stylish online store. The website
+            focuses on presenting clothing products in an organized way
+            and providing visitors with an easy way to explore the brand
+            and its available items.
+          </p>
+
+          <div class="tools">
+            <span>⌘ Web Design</span>
+            <span>◇ HTML</span>
+            <span>↗ CSS</span>
+          </div>
+
+          <a class="btn small" href="#contact"
+            aria-label="Ask me about ASSAULT MOB">
+            Project Details ↗
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="reveal">
+        <p class="eyebrow">Get in Touch</p>
+        <h2 class="section-title">Contact <span>Me</span></h2>
+
+        <p class="lead">
+          Feel free to reach out for collaborations, opportunities,
+          or just to say hello. I'll get back to you as soon as possible.
+        </p>
+
+        <div class="contact-list">
+          <div class="contact-row">
+            <div class="round-icon">✉</div>
+            <div>Email
+              <small>
+                <a href="mailto:garcej.90@gmail.com">garcej.90@gmail.com</a>
+              </small>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="round-icon">f</div>
+            <div>Facebook
+              <small>
+                <a href="https://www.facebook.com/joshua.garce.90"
+                   target="_blank" rel="noopener noreferrer">
+                  facebook.com/joshua.garce.90
+                </a>
+              </small>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="round-icon">◎</div>
+            <div>Instagram
+              <small>
+                <a href="https://www.instagram.com/joch05k"
+                   target="_blank" rel="noopener noreferrer">
+                  instagram.com/joch05k
+                </a>
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="socials">
+          <a href="https://www.facebook.com/joshua.garce.90"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Facebook">f</a>
+
+          <a href="https://www.instagram.com/joch05k"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Instagram">◎</a>
+
+          <a href="mailto:garcej.90@gmail.com" aria-label="Email">✉</a>
+        </div>
+      </div>
+
+      <form class="panel reveal" id="contactForm" novalidate>
+        <h3 class="form-title">Send Me a Message</h3>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="fullName">Full Name *</label>
+            <input id="fullName" name="fullName"
+              autocomplete="name" placeholder="Enter your name" required>
+            <span class="error" id="nameError"></span>
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address *</label>
+            <input id="email" name="email" type="email"
+              autocomplete="email" placeholder="Enter your email" required>
+            <span class="error" id="emailError"></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="subject">Subject *</label>
+          <select id="subject" name="subject" required>
+            <option value="">Select a subject</option>
+            <option>Project Inquiry</option>
+            <option>Collaboration</option>
+            <option>General Message</option>
+          </select>
+          <span class="error" id="subjectError"></span>
+        </div>
+
+        <div class="field">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message"
+            placeholder="Type your message here..." required></textarea>
+          <span class="error" id="messageError"></span>
+        </div>
+
+        <button class="btn primary" type="submit">➤ Send Message</button>
+
+        <p class="form-status" id="formStatus"
+          role="status" aria-live="polite"></p>
+
+        <p class="privacy-note">
+          This demo validates your message in the browser. It does not
+          send or store messages. Use the email link above to contact me.
+        </p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Joshua Alexis L. Garce. All rights reserved.</span>
+    <span>Designed with <span class="accent">◆</span> and built with HTML, CSS & JavaScript.</span>
+  </div>
+</footer>
+
+<script>
+// MOBILE NAVIGATION
+const navLinks = [...document.querySelectorAll('.links a')];
+const sections = [...document.querySelectorAll('main section[id]')];
+const nav = document.getElementById('navLinks');
+const menuToggle = document.getElementById('menuToggle');
+
+menuToggle.addEventListener('click', () => {
+  const isOpen = nav.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+  menuToggle.textContent = isOpen ? '✕' : '☰';
+});
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.textContent = '☰';
+  });
+});
+
+// ACTIVE NAVIGATION LINK
+function setActiveLink() {
+  let current = 'home';
+
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 150) {
+      current = section.id;
+    }
+  });
+
+  navLinks.forEach(link => {
+    const active = link.getAttribute('href') === `#${current}`;
+    link.classList.toggle('active', active);
+
+    if (active) {
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+}
+
+window.addEventListener('scroll', setActiveLink, { passive: true });
+setActiveLink();
+
+// DARK AND LIGHT MODE
+const themeToggle = document.getElementById('themeToggle');
+
+try {
+  if (localStorage.getItem('jag-theme') === 'light') {
+    document.body.classList.add('light');
+  }
+} catch (error) {
+  // Theme switching still works if local storage is unavailable.
+}
+
+function updateThemeButton() {
+  const light = document.body.classList.contains('light');
+  themeToggle.textContent = light ? '☾' : '☼';
+  themeToggle.setAttribute(
+    'aria-label',
+    light ? 'Switch to dark mode' : 'Switch to light mode'
+  );
+  themeToggle.title = light ? 'Switch to dark mode' : 'Switch to light mode';
+}
+
+updateThemeButton();
+
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+
+  try {
+    localStorage.setItem(
+      'jag-theme',
+      document.body.classList.contains('light') ? 'light' : 'dark'
+    );
+  } catch (error) {
+    // The theme can still change for the current page.
+  }
+
+  updateThemeButton();
+});
+
+// SCROLL REVEAL ANIMATION
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(element => {
+    revealObserver.observe(element);
+  });
+} else {
+  document.querySelectorAll('.reveal').forEach(element => {
+    element.classList.add('visible');
+  });
+}
+
+// AUTOMATIC COPYRIGHT YEAR
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// CONTACT FORM VALIDATION
+const form = document.getElementById('contactForm');
+const status = document.getElementById('formStatus');
+
+const fields = {
+  fullName: {
+    input: document.getElementById('fullName'),
+    error: document.getElementById('nameError')
+  },
+  email: {
+    input: document.getElementById('email'),
+    error: document.getElementById('emailError')
+  },
+  subject: {
+    input: document.getElementById('subject'),
+    error: document.getElementById('subjectError')
+  },
+  message: {
+    input: document.getElementById('message'),
+    error: document.getElementById('messageError')
+  }
+};
+
+function showError(key, message) {
+  fields[key].error.textContent = message;
+  fields[key].input.setAttribute(
+    'aria-invalid',
+    message ? 'true' : 'false'
+  );
+}
+
+function validateForm() {
+  let valid = true;
+
+  const name = fields.fullName.input.value.trim();
+  const email = fields.email.input.value.trim();
+  const subject = fields.subject.input.value;
+  const message = fields.message.input.value.trim();
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  const checks = {
+    fullName: name.length < 2
+      ? 'Please enter your full name (at least 2 characters).'
+      : '',
+
+    email: !emailPattern.test(email)
+      ? 'Please enter a valid email address.'
+      : '',
+
+    subject: !subject
+      ? 'Please select a subject.'
+      : '',
+
+    message: message.length < 10
+      ? 'Message must be at least 10 characters long.'
+      : ''
+  };
+
+  Object.entries(checks).forEach(([key, error]) => {
+    showError(key, error);
+    if (error) valid = false;
+  });
+
+  return valid;
+}
+
+Object.values(fields).forEach(({ input, error }) => {
+  input.addEventListener('input', () => {
+    error.textContent = '';
+    input.setAttribute('aria-invalid', 'false');
+    status.textContent = '';
+  });
+
+  input.addEventListener('change', () => {
+    error.textContent = '';
+    input.setAttribute('aria-invalid', 'false');
+  });
+});
+
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  status.textContent = '';
+
+  if (!validateForm()) {
+    status.textContent = 'Please check the highlighted fields and try again.';
+    return;
+  }
+
+  status.textContent =
+    'Validation successful! This demo does not send messages yet. Please use the email link to contact me.';
+
+  form.reset();
+
+  Object.keys(fields).forEach(key => showError(key, ''));
+});
+</script>
+
+</body>
+</html>
